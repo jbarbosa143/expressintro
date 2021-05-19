@@ -17,8 +17,12 @@ app.get("/", function(req,res){
 
 app.get("/photo-fun", function(req,res){
     res.render("photos");
-})
+});
 
+app.get("/:pet/:age", function(req,res){
+    res.render("pets",{pet: req.params.pet, age:req.params.age})
+    // res.json({pet: req.params.pet, age:req.params.age});
+});
 
 app.listen(3000, function(){
     console.log("Server started in port 3000");
